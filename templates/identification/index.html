@@ -1,0 +1,17 @@
+{% extends "./layout.html" %}
+{% block title %}画像分類{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="col content">
+            <h1>画像分類</h1>
+            <form method="post", enctype="multipart/form-data", action="{% url 'identification:result' %}">
+                {% csrf_token %}
+                {% if msg %}
+                    <div>{{ msg }}</div>
+                {% endif %}
+                <input name="uploadFile" type="file">
+                <input type="submit", value="判定">
+            </form>
+        </div>
+    </div>
+{% endblock %}
